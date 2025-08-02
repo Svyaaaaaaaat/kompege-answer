@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name
+// @name         kompege-answer
 // @namespace    https://kompege.ru
 // @version      1.0.0
 // @description  Expansion of kompege

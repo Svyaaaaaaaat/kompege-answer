@@ -10,11 +10,11 @@ Escape, клик вне - закрыть
 
 1. Включите режим разработчика в расширениях браузера
 
-- Yandex - browser://extensions/
-- Chrome - chrome://extensions
+    - Yandex - browser://extensions/
+    - Chrome - chrome://extensions
 
 2. Установите расширение [Tampermonkey](https://www.tampermonkey.net/)
-3. [download](https://github.com/Svyaaaaaaaat/kompege-answer/raw/refs/heads/main/kompege-answer.user.js)
+3. Kompege-answer [download](https://github.com/Svyaaaaaaaat/kompege-answer/raw/refs/heads/main/kompege-answer.user.js)
 
 #### Связь
 

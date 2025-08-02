@@ -358,7 +358,6 @@ html.light-theme #answerPopup #taskInput {
   }
 
   function renderSolveText(solve) {
-    console.log(solve);
     solutionText.style.display = "flex";
     solutionVideo.style.display = "none";
     solutionText.innerHTML = solve;

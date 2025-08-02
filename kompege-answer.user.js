@@ -2,10 +2,12 @@
 // @name
 // @namespace    https://kompege.ru
 // @version      1.0.0
-// @description  try to take over the world!
+// @description  Expansion of kompege
 // @author       You
 // @match        https://kompege.ru/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=kompege.ru
+// @updateURL    https://github.com/Svyaaaaaaaat/kompege-answer/raw/refs/heads/main/kompege-answer.user.js
+// @downloadURL  https://github.com/Svyaaaaaaaat/kompege-answer/raw/refs/heads/main/kompege-answer.user.js
 // @grant        none
 // ==/UserScript==
 

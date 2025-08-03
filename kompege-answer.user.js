@@ -20,23 +20,15 @@
 #answerPopup * {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   background: transparent;
   box-sizing: border-box;
   color: inherit;
   text-decoration: none;
   outline: none;
-  /* reset list styles */
-  list-style: none;
-  /* reset table borders */
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* Отдельно для кнопок и интерактивных элементов */
 #answerPopup button,
 #answerPopup input,
 #answerPopup select,
@@ -64,11 +56,19 @@
   -moz-appearance: textfield;
 }
 
-/* Убрать подчеркивания у ссылок */
 #answerPopup a {
   text-decoration: none;
   color: inherit;
 }
+
+#answerPopup ol {
+	text-align: left;
+	padding-left: 25px;
+  font-size: 17px;
+}
+#answerPopup li {
+	margin-bottom: 5px;
+  }
 
 #answerPopup {
   position: fixed;
@@ -100,6 +100,7 @@ html.light-theme #answerPopup {
 }
 
 #answerPopup h2 {
+  font: inherit;
   user-select: none;
   font-size: 24px;
   margin-bottom: 20px;
@@ -199,7 +200,7 @@ html.light-theme #answerPopup #taskInput {
   font-size: 18px;
 }
 
-#answerPopup .answer-popup__solution-text {
+#answerPopup .answer-popup__solution-block {
   flex: 1;
   display: none;
   justify-content: center;
@@ -220,8 +221,10 @@ html.light-theme #answerPopup #taskInput {
 	<div class="answer-popup__video-block">
 		<iframe class="answer-popup__iframe" sandbox="allow-scripts allow-same-origin" allowfullscreen></iframe>
 	</div>
+  <div class="answer-popup__solution-block">
 	<div class="answer-popup__solution-text">
 	</div>
+  </div>
 </div>
 <div class="answer-popup__answer">
 	<label for="taskInput" class="answer-popup__label">
@@ -240,6 +243,7 @@ html.light-theme #answerPopup #taskInput {
   const answerSpan = popup.querySelector(".answer-popup__answer-value");
   const copyMsg = popup.querySelector(".answer-popup__copy-message");
   const solutionText = popup.querySelector(".answer-popup__solution-text");
+  const solutionBlock = popup.querySelector(".answer-popup__solution-block");
   const solutionVideo = popup.querySelector(".answer-popup__video-block");
   const taskNumber = popup.querySelector(".answer-popup__answer label span");
   const taskInput = popup.querySelector("#taskInput");
@@ -312,7 +316,7 @@ html.light-theme #answerPopup #taskInput {
       iframe.removeAttribute("allow");
       return;
     }
-    solutionText.style.display = "none";
+    solutionBlock.style.display = "none";
     solutionVideo.style.display = "block";
 
     let src = "";
@@ -336,7 +340,7 @@ html.light-theme #answerPopup #taskInput {
         break;
       case "vk":
         const [oid, id] = data.video.split("_");
-        const time = data.timecode || ""; // В формате "1h17m55s" или ""
+        const time = data.timecode || "";
         const timeParam = time ? `&t=${time}` : "";
         src = `https://vk.com/video_ext.php?oid=-${oid}&id=${id}${timeParam}`;
         allow = "autoplay; encrypted-media";
@@ -358,9 +362,16 @@ html.light-theme #answerPopup #taskInput {
   }
 
   function renderSolveText(solve) {
-    solutionText.style.display = "flex";
+    solutionBlock.style.display = "flex";
     solutionVideo.style.display = "none";
     solutionText.innerHTML = solve;
+    renderMathInElement(solutionText, {
+      delimiters: [
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true },
+      ],
+      throwOnError: false,
+    });
   }
 
   function fetchAnswer(taskId) {

@@ -206,6 +206,9 @@ html.light-theme #answerPopup #taskInput {
   justify-content: center;
   align-items: center;
 }
+#answerPopup .answer-popup__solution-text {
+  text-align: left;
+}
   `;
   document.head.appendChild(style);
 
@@ -221,10 +224,10 @@ html.light-theme #answerPopup #taskInput {
 	<div class="answer-popup__video-block">
 		<iframe class="answer-popup__iframe" sandbox="allow-scripts allow-same-origin" allowfullscreen></iframe>
 	</div>
-  <div class="answer-popup__solution-block">
-	<div class="answer-popup__solution-text">
+	<div class="answer-popup__solution-block">
+		<div class="answer-popup__solution-text">
+		</div>
 	</div>
-  </div>
 </div>
 <div class="answer-popup__answer">
 	<label for="taskInput" class="answer-popup__label">

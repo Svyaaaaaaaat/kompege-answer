@@ -3,7 +3,7 @@
 #### Как работает?
 
 
-https://github.com/user-attachments/assets/0e504742-1515-4770-b5f2-b26f2ec3f48f
+https://github.com/user-attachments/assets/fc3d6c8f-bfc5-4543-9d15-32161f80238c
 
 
 #### Как установить?
